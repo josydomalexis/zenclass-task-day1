@@ -1,0 +1,3 @@
+Java script
+
+In JavaScript, objects are essential data structures, representing collections of key-value pairs. They can hold various data types, including functions, arrays, and other objects. Internally, objects are stored as dynamic, unordered properties, optimized for flexibility. This allows for dynamic manipulation and efficient retrieval, making objects a cornerstone of JavaScript programming. 

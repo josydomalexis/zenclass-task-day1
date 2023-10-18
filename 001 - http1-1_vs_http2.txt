@@ -1,0 +1,99 @@
+_________________________________________________________
+
+  |--------------  Http1.1  Vs Http2   ---------------|
+_________________________________________________________
+
+
+Http1.1 -> Single requests and responses in parallel
+Http2   -> Multiple requests and responses in parallel
+_________________________________________________________
+
+||||||||||                         	#################
+|        |      Request            	#               #
+||||||||||      <-----------       	#    Computer   #
+| SERVER |      Reesponse          	#               #
+||||||||||      ----------->       	#################
+|        |                        	       | |
+||||||||||                                    =====
+
+
+Http1.1 -> Uses plain text for headers
+Http2   -> Uses Binary for headers
+_______________________________________
+
+||||||||||                         	#################
+|        |    				#               #
+||||||||||         			#    Computer   #
+| SERVER |   <---- Header Text ---->    #               #
+||||||||||            			#################
+|        |                                     | |
+||||||||||                                    =====
+
+
+Http1.1 -> No built-in multiplexing
+Http2   -> Built-in multiplexing
+______________________________________
+
+||||||||||                         	#################
+|        |   <---------------------->	#               #
+||||||||||   <---------------------->	#    Computer   #
+| SERVER |   <---- Multiplexing ---->	#               #
+||||||||||   <---------------------->	#################
+|        |   <---------------------->          | |
+||||||||||                                    =====
+
+
+Http1.1 -> Low compression
+Http2   -> More Efficient header compression
+____________________________________________
+
++++++++++++++++++				
++   		+++
++   		+++++
++   		+++++++				+++++++++++++++
++		+++++++++			+   	      +++
++          		+			+             +++++
++			+			+             +++++++	
++    	  File		+	--------->	+	            +
++			+			+  Low compression  +
++			+			+                   +
++			+			+                   +
++			+			+                   +
++			+			+++++++++++++++++++++
++++++++++++++++++++++++++
+
+
+No server push
+..............
+Http1.1 -> No server push
+Http2   -> Servers can proactively send resources to clients.
+____________________________________________
+
+||||||||||    
+|        |   	#########################
+||||||||||	#			#
+|	 |	#      Server Push	#
+| SERVER |   	#  			#
+|	 |   	#			#
+||||||||||   	####   ##################
+| 	 |   	   # #
+||||||||||     	   #
+		
+		
+HTTP/1.1:
+    1. Sequential: Requests are processed one at a time, leading to head-of-line blocking.
+    2. Text-based: Uses plain text for headers, which can be inefficient.
+    3. No built-in multiplexing: Requires multiple connections for parallel requests.
+    4. Limited compression: Minimal header compression.
+    5. No server push: The server can't initiate sending resources without a request.
+HTTP/2:
+    1. Parallel processing: Supports multiplexing, allowing multiple requests and responses in parallel.
+    2. Binary format: Headers are binary-encoded, reducing overhead and improving efficiency.
+    3. Built-in multiplexing: One connection for multiple streams, reducing latency.
+    4. Efficient header compression: Improved compression reduces data transfer size.
+    5. Server push: Servers can proactively send resources to clients.
+
+
+HTTP/2 is designed to be faster and more efficient than HTTP/1.1, particularly for modern web applications.
+
+
